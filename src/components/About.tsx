@@ -56,7 +56,7 @@ export function About() {
         <div className="lg:w-1/2">
           <div className="flex items-center gap-4 mb-6">
             <BearLogo className="w-8 h-8 object-contain" />
-            <h2 className="text-3xl md:text-5xl font-bold">{aboutData.title}</h2>
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tight text-white leading-[1.1]">{aboutData.title}</h2>
           </div>
           
           <div className="space-y-6 text-lg text-neutral-400 leading-relaxed">

@@ -63,8 +63,8 @@ export function CreatorFeed() {
       `}</style>
 
       <div className="max-w-[1600px] mx-auto px-4 md:px-8 mb-16 text-center">
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white uppercase tracking-wider mb-4">
-          Werde Teil unserer Community!
+        <h2 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tight text-white leading-[1.1] mb-6">
+          Einblicke in unseren Fahrschul-Alltag
         </h2>
         
       </div>

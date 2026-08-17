@@ -43,7 +43,7 @@ export function USPs() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-4xl md:text-5xl font-light mb-6 text-white tracking-wide"
+            className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tight text-white leading-[1.1] mb-6"
           >
             {t('usps.title_start')}<span className="font-bold">{t('usps.title_highlight')}</span>
           </motion.h2>

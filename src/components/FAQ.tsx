@@ -36,7 +36,7 @@ export function FAQ() {
     <Section id="faq" className="bg-neutral-900 border-t border-white/5">
       <div className="max-w-3xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">{t('faq.subtitle')}</h2>
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tight text-white leading-[1.1] mb-6">{t('faq.subtitle')}</h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary to-gold mx-auto rounded-full" />
         </div>
 

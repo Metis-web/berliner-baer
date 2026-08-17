@@ -57,7 +57,7 @@ export function Registration() {
       </div>
       <div className="relative z-10 flex flex-col lg:flex-row gap-16">
         <div className="lg:w-5/12">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tight text-white leading-[1.1] mb-6">
             Bereit für deinen <br />
             <span className="text-primary">{t('reg.form.title_q')}</span>
           </h2>

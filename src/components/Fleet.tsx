@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Section } from './ui/Section';
+import { ImageLightbox } from './ImageLightbox';
 import { collection, query, orderBy, onSnapshot } from 'firebase/firestore';
 import { db } from '../firebase';
 
@@ -26,6 +27,13 @@ export function Fleet() {
   const [vehicles, setVehicles] = useState(defaultFleet);
   const [filter, setFilter] = useState('Alle');
   const [loading, setLoading] = useState(true);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxData, setLightboxData] = useState({ src: '', alt: '' });
+
+  const openLightbox = (src: string, alt: string) => {
+    setLightboxData({ src, alt });
+    setLightboxOpen(true);
+  };
 
   useEffect(() => {
     const q = query(collection(db, 'fleet'), orderBy('order', 'asc'));
@@ -81,7 +89,7 @@ export function Fleet() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-4xl md:text-6xl font-black mb-8 text-white tracking-tight"
+            className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tight text-white leading-[1.1] mb-6"
           >
             Unser <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-neutral-200 to-neutral-500">Fuhrpark</span>
           </motion.h2>
@@ -145,7 +153,7 @@ export function Fleet() {
               >
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/0 to-primary/0 group-hover:to-primary/5 transition-colors duration-500 z-0 pointer-events-none" />
                 
-                <div className="aspect-[4/3] overflow-hidden relative z-10">
+                <div className="aspect-[4/3] overflow-hidden relative z-10 cursor-zoom-in" onClick={() => openLightbox(car.img, car.name)}>
                   <div className="absolute inset-0 bg-black/30 group-hover:bg-transparent transition-colors duration-500 z-10" />
                   <motion.img referrerPolicy="no-referrer" 
                     whileHover={{ scale: 1.08 }}
@@ -178,6 +186,7 @@ export function Fleet() {
           </AnimatePresence>
         </motion.div>
       </div>
+      <ImageLightbox isOpen={lightboxOpen} onClose={() => setLightboxOpen(false)} imageSrc={lightboxData.src} imageAlt={lightboxData.alt} />
     </Section>
   );
 }

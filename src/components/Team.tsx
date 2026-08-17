@@ -5,6 +5,7 @@ import { collection, query, orderBy, onSnapshot } from 'firebase/firestore';
 import { db } from '../firebase';
 import { motion, useScroll, useTransform } from 'motion/react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ImageLightbox } from './ImageLightbox';
 
 const defaultTeam = [
   {
@@ -34,6 +35,13 @@ export function Team() {
   const { t } = useTranslation();
   const [team, setTeam] = useState(defaultTeam);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxData, setLightboxData] = useState({ src: '', alt: '' });
+
+  const openLightbox = (src: string, alt: string) => {
+    setLightboxData({ src, alt });
+    setLightboxOpen(true);
+  };
 
   useEffect(() => {
     const q = query(collection(db, 'team'), orderBy('order', 'asc'));
@@ -75,7 +83,7 @@ export function Team() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="text-4xl md:text-6xl font-black text-white tracking-tight"
+              className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tight text-white leading-[1.1] mb-6"
             >
               {t('about.team_title')}
             </motion.h2>
@@ -117,12 +125,12 @@ export function Team() {
                 key={member.id || i} 
                 className="group relative rounded-[2rem] overflow-hidden bg-[#0A0A0A] border border-white/10 flex-shrink-0 w-[85vw] sm:w-[350px] lg:w-[400px] snap-center sm:snap-start"
               >
-                <div className="aspect-[4/5] overflow-hidden relative">
+                <div className="aspect-[4/5] overflow-hidden relative cursor-zoom-in" onClick={() => openLightbox(member.img, member.name)}>
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-transparent to-transparent z-10" />
                   <img referrerPolicy="no-referrer" 
                     src={member.img} 
                     alt={member.name} 
-                    className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" 
+                    className="w-full h-full object-cover object-[70%_20%] scale-[1.15] grayscale opacity-80 group-hover:grayscale-0 group-hover:scale-[1.25] transition-all duration-700" 
                   />
                 </div>
                 
@@ -151,6 +159,7 @@ export function Team() {
           display: none;
         }
       `}</style>
+      <ImageLightbox isOpen={lightboxOpen} onClose={() => setLightboxOpen(false)} imageSrc={lightboxData.src} imageAlt={lightboxData.alt} />
     </Section>
   );
 }

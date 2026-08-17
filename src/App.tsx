@@ -84,7 +84,7 @@ function Layout() {
     return () => unsubscribe();
   }, []);
 
-  const isAdmin = location.pathname.startsWith('/admin');
+  const isAdmin = location.pathname === '/admin';
   
   // Check if current path is a valid page
   const validPaths = ['/', '/kontakt', '/faq', '/karriere', '/ueber-uns', '/theorie', '/impressum', '/datenschutz', '/agb'];

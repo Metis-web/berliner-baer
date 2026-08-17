@@ -104,7 +104,7 @@ export function NotFound() {
           transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}
           className="flex flex-col items-center"
         >
-          <h2 className="text-3xl md:text-5xl font-black text-white mb-6 tracking-tight">
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tight text-white leading-[1.1] mb-6">
             Falsche Abzweigung
           </h2>
           <p className="text-neutral-400 text-lg md:text-xl font-light max-w-lg leading-relaxed mb-12">

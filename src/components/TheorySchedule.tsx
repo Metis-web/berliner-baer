@@ -50,7 +50,7 @@ export function TheorySchedule() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            className="text-4xl md:text-6xl font-black mb-8 text-white tracking-tight"
+            className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tight text-white leading-[1.1] mb-6"
           >
             {t('theory.subtitle')}
           </motion.h2>

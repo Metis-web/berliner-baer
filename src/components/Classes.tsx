@@ -68,7 +68,7 @@ export function Classes() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl md:text-6xl font-black mb-6 tracking-tight"
+            className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tight text-white leading-[1.1] mb-6"
           >
             {t('classes.title1')} <br/>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-neutral-500">{t('classes.title2')}</span>

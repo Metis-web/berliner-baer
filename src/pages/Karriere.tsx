@@ -108,7 +108,7 @@ export function Karriere() {
           
           <div className="relative z-10 flex flex-col md:flex-row gap-12 items-center justify-between">
             <div className="flex-1">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+              <h2 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tight text-white leading-[1.1] mb-6">
                 {t('career.contact.title')}
               </h2>
               <p className="text-neutral-300 font-light text-lg mb-8 leading-relaxed max-w-xl">

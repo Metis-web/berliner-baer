@@ -9,7 +9,7 @@ export function Location() {
     <Section id="contact">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
         <div>
-          <h2 className="text-3xl md:text-5xl font-bold mb-8">{t('loc.title')}.</h2>
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tight text-white leading-[1.1] mb-6">{t('loc.title')}.</h2>
           
           <div className="space-y-8">
             <div className="flex items-start gap-4">
